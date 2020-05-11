@@ -10,6 +10,7 @@ allGarbage = [deadfish, bottle];
 
 function setup() {
   createCanvas(800, 440);
+
   bg = loadImage("./src/assets/background.jpg");
   crab = loadImage("./src/assets/crab.png");
   //allGarbage = [deadfish, bottle];
@@ -20,4 +21,5 @@ function setup() {
   // garbage = allGarbage[1];
   // console.log(garbage);
   // console.log(allGarbage);
+
 }
