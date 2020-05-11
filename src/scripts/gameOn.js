@@ -2,12 +2,14 @@ let y = -20; // starting position of image
 let x = 200;
 let speed = 2;
 let score = 0;
+let opacity = 200;
 
 function gameOn() {
   background(bg);
-  text("score = " + score, 30, 20);
+  pg = rect(0, 0, 800, 440);
+  fill(0, 0, 0, opacity);
+  text('score = ' + score, 30, 20);
   image(garbage, x, y, 35, 35);
-  rectMode(CENTER);
   image(crab, mouseX, height - 60, 80, 60);
   y += speed;
 
@@ -17,6 +19,8 @@ function gameOn() {
 
   if (y > height - 60 && x > mouseX - 50 && x < mouseX + 50) {
     y = -20;
+    score += 1;
+    opacity -= 5;
     speed += 0.2;
     console.log(garbage);
     console.log(allGarbage[0]);
