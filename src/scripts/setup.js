@@ -10,5 +10,3 @@ function setup() {
   garbage = loadImage('./src/assets/bottle.png');
   allGarbage = ['./src/assets/deadfish.png', './src/assets/bottle.png'];
 }
-
-console.log(crab);
