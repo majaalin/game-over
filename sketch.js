@@ -7,7 +7,6 @@ let bg;
 let crab;
 let allGarbage;
 let garbage;
-let hej;
 
 function setup() {
   createCanvas(800, 440);
