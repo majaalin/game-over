@@ -5,3 +5,4 @@ function endScreen() {
   text('SCORE = ' + score, width / 2, height / 2 + 20);
   text('click to play again', width / 2, height / 2 + 40);
 }
+ 
