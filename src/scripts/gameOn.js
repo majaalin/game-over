@@ -12,12 +12,12 @@ function gameOn() {
   image(garbage, x, y, 35, 35);
   image(crab, mouseX, height - 60, 80, 60);
   y += speed;
-
   if (y > height) {
     screen = 2;
   }
 
   if (y > height - 60 && x > mouseX - 50 && x < mouseX + 50) {
+    scoreSound.play();
     y = -20;
     score += 1;
     opacity -= 5;
@@ -29,12 +29,12 @@ function gameOn() {
     //   console.log(data);
     // });
 
-    if (garbage === "./src/assets/deadfish.png") {
-      console.log("hej" + garbage);
-      score--;
-    } else {
-      score++;
-    }
+    // if (garbage === './src/assets/deadfish.png') {
+    //   console.log('hej' + garbage);
+    //   score--;
+    // } else {
+    //   score++;
+    // }
 
     garbage = loadImage(
       allGarbage[Math.floor(Math.random() * allGarbage.length)]
