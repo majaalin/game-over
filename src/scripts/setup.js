@@ -4,18 +4,20 @@ let allGarbage;
 let garbage;
 let scoreSound;
 let backgroundSound;
+let startScreenBackground;
 
 function preload() {
-  scoreSound = loadSound('./src/assets/points.wav');
-  bg = loadImage('./src/assets/bg2.jpg');
-  crab = loadImage('./src/assets/crab.png');
-  garbage = loadImage('./src/assets/bottle.png');
-  allGarbage = ['./src/assets/deadfish.png', './src/assets/bottle.png'];
+  scoreSound = loadSound("./src/assets/points.wav");
+  bg = loadImage("./src/assets/bg2.jpg");
+  crab = loadImage("./src/assets/crab.png");
+  garbage = loadImage("./src/assets/bottle.png");
+  allGarbage = ["./src/assets/deadfish.png", "./src/assets/bottle.png"];
+  startScreenBackground = loadImage("./src/assets/underwater.jpg");
 }
 function setup() {
   createCanvas(800, 440);
-  const deadfish = './src/assets/deadfish.png';
-  const bottle = './src/assets/bottle.png';
+  const deadfish = "./src/assets/deadfish.png";
+  const bottle = "./src/assets/bottle.png";
 
   allGarbage = [deadfish, bottle];
 
