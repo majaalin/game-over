@@ -12,9 +12,10 @@ function gameOn() {
   background(bg);
   fill(0, 0, 0, opacity);
   pg = rect(0, 0, 800, 440);
+  textFont(scoreFont);
   fill(scoreTextColor);
-  textSize(14);
-  scoreText = text('score = ' + score, 40, 20);
+  textSize(24);
+  scoreText = text('score = ' + score, 70, 35);
   image(garbage, x, y, 35, 35);
   image(crab, mouseX, height - 60, 80, 60);
   y += speed;
