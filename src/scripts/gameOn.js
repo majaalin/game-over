@@ -25,11 +25,18 @@ function gameOn() {
   image(crab, mouseX, height - 60, 80, 60);
   y += speed;
 
-  
-  if (garbage.type === "deadfish" && y > height) { // Game continues if deadfish is not catched
+  if (score < 0) {
+    // Game over if minus score
+    gameOverSound.play();
+    screen = 2;
+  }
+
+  if (garbage.type === "deadfish" && y > height) {
+    // Game continues if deadfish is not catched
     y = -20;
     garbage = allGarbage[Math.floor(Math.random() * allGarbage.length)];
-  } else if (garbage.type != "deadfish" && y > height) { // Game over if plastic is not catched
+  } else if (garbage.type != "deadfish" && y > height) {
+    // Game over if plastic is not catched
     gameOverSound.play();
     screen = 2;
   }
