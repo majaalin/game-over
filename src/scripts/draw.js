@@ -6,6 +6,7 @@ function draw() {
   } else if (screen == 1) {
     gameOn();
   } else if (screen == 2) {
+    music = false;
     endScreen();
   }
 }
