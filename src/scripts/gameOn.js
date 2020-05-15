@@ -21,10 +21,22 @@ function gameOn() {
   textSize(24);
   scoreText = text("score = " + score, 70, 35);
   image(garbage.image, x, y, 35, 35);
+  // console.log(garbage.type);
   image(crab, mouseX, height - 60, 80, 60);
   y += speed;
 
-  if (y > height) {
+  if (score < 0) {
+    // Game over if minus score
+    gameOverSound.play();
+    screen = 2;
+  }
+
+  if (garbage.type === "deadfish" && y > height) {
+    // Game continues if deadfish is not catched
+    y = -20;
+    garbage = allGarbage[Math.floor(Math.random() * allGarbage.length)];
+  } else if (garbage.type != "deadfish" && y > height) {
+    // Game over if plastic is not catched
     gameOverSound.play();
     screen = 2;
   }
