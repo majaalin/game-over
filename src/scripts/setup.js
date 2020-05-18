@@ -33,6 +33,7 @@ function preload() {
   scoreFont = loadFont('./src/assets/Bubblegum.ttf');
   backgroundSound = loadSound('./src/assets/underwater.wav');
   sound = loadImage('./src/assets/sound.png');
+  wrong = loadSound('./src/assets/wrong.wav');
 }
 
 function setup() {
