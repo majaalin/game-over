@@ -86,4 +86,6 @@ function setup() {
   pauseButton.size(70, 30);
   soundButton = createButton(soundOnOff);
   soundButton.size(110, 30);
+  playAgainButton = createButton('play again');
+  playAgainButton.size(140, 35);
 }

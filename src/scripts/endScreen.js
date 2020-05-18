@@ -2,9 +2,20 @@ function endScreen() {
   pauseButton.hide();
   soundButton.hide();
   cursor('pointer');
-  background(120);
+  background('white');
   textAlign(CENTER);
-  text('GAME OVER', width / 2, height / 2);
+  fill('#5e87d6');
+  textSize(50);
+  textFont(scoreFont);
+  text('GAME OVER', width / 2, height / 2 - 30);
+  textSize(18);
+  fill('#4300d1');
   text('SCORE = ' + score, width / 2, height / 2 + 20);
-  text('click to play again', width / 2, height / 2 + 40);
+  playAgainButton.show();
+  playAgainButton.class('playAgainButton');
+  playAgainButton.mousePressed(goBackToStartPage);
+}
+
+function goBackToStartPage() {
+  startScreen();
 }
