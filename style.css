@@ -7,6 +7,11 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+body {
+  background-color: #1670ae;
+}
+
 canvas {
   display: block;
 }
