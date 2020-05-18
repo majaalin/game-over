@@ -11,6 +11,8 @@ let backgroundSound;
 let scoreFont;
 let deadfish;
 let bottle;
+let plasticBag;
+let coffeeCup;
 let allGarbage = [];
 let garbage;
 
@@ -25,16 +27,20 @@ function preload() {
   crab = loadImage("./src/assets/crab.png");
   deadfish = loadImage("./src/assets/deadfish.png");
   bottle = loadImage("./src/assets/bottle.png");
-  startScreenBackground = loadImage("./src/assets/underwater.jpg");
+  plasticBag = loadImage("./src/assets/plastic-bag.png");
+  coffeeCup = loadImage("./src/assets/coffee-cup.png");
+  startScreenBackground = loadImage("./src/assets/pollution.jpg");
   scoreFont = loadFont("./src/assets/Bubblegum.ttf");
   backgroundSound = loadSound('./src/assets/underwater.wav');
   sound = loadImage('./src/assets/sound.png');
 }
 
 function setup() {
+  createCanvas(windowWidth - 290, windowHeight - 140);
   createCanvas(800, 440);
   backgroundSound.setVolume(0.1);
   backgroundSound.loop();
+
 
   const garbageObjects = {
     deadfish: {
@@ -45,6 +51,14 @@ function setup() {
       type: "bottle",
       image: bottle,
     },
+    plasticBag: {
+      type: "plastic-bag",
+      image: plasticBag,
+    },
+    coffeeCup: {
+      type: "coffee-cup",
+      image: coffeeCup,
+    },
   };
 
   //const numberOfObjects = Object.keys(bla).length; //2
@@ -53,7 +67,12 @@ function setup() {
   //   allGarbage.push(Object.keys(garbageObjects)[i]);
   // }
 
-  allGarbage = [garbageObjects.deadfish, garbageObjects.bottle];
+  allGarbage = [
+    garbageObjects.deadfish,
+    garbageObjects.bottle,
+    garbageObjects.plasticBag,
+    garbageObjects.coffeeCup,
+  ];
 
   // The first garbage item that will fall from the ocean surface
   garbage = allGarbage[Math.floor(Math.random() * allGarbage.length)];
