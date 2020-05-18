@@ -83,40 +83,7 @@ function setup() {
   garbage = allGarbage[Math.floor(Math.random() * allGarbage.length)];
 
   pauseButton = createButton(pauseOrPlay);
-  pauseButton.position(0, 0);
-  pauseButton.mousePressed(pauseGame);
   pauseButton.size(70, 30);
-  pauseButton.style('font-size', '20px');
-  pauseButton.elt.classList = 'pauseButton';
   soundButton = createButton(soundOnOff);
-  soundButton.position(150, 0);
   soundButton.size(110, 30);
-  soundButton.style('font-size', '20px');
-  soundButton.mousePressed(stopMusic);
-}
-
-function pauseGame() {
-  if (gameRunning === true) {
-    noLoop();
-    backgroundSound.stop();
-    return (gameRunning = false), (musicOn = false), (pauseOrPlay = 'play');
-  }
-  if (gameRunning === false) {
-    loop();
-    backgroundSound.loop();
-    pauseButton.html = 'då';
-    return (gameRunning = true), (musicOn = true), (pauseOrPlay = 'pause');
-  }
-}
-
-function stopMusic() {
-  if (musicOn === true) {
-    backgroundSound.stop();
-    return (musicOn = false), (soundOnOff = 'sound on');
-  }
-  if (musicOn === false) {
-    backgroundSound.loop();
-    soundOnOff = 'sound off';
-    return (musicOn = true), (soundOnOff = 'sound off');
-  }
 }
