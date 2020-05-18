@@ -22,9 +22,6 @@ function gameOn() {
     background(bg20);
   }
 
-  background(bg);
-  fill(0, 0, 0, opacity);
-  pg = rect(0, 0, 800, 440);
   textFont(scoreFont);
   fill('#5e87d6');
   textSize(24);
