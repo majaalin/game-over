@@ -1,4 +1,5 @@
 function endScreen() {
+  cursor('pointer');
   background(120);
   textAlign(CENTER);
   text('GAME OVER', width / 2, height / 2);
