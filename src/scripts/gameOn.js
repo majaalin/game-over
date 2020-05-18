@@ -22,9 +22,13 @@ function gameOn() {
     background(bg20);
   }
 
+  pauseButton.style.visibility = 'visible';
+
   fill('#5e87d6');
   textFont(scoreFont);
   textSize(24);
+  pauseButton.show();
+  soundButton.show();
 
   scoreText = text('score = ' + score, 70, 35);
   image(garbage.image, x, y, 35, 35);

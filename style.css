@@ -50,3 +50,17 @@ canvas {
   box-shadow: 0 1px #4300d1;
   transform: translateY(4px);
 }
+
+.crab {
+  width: 80px;
+  animation: moving 1s infinite;
+}
+
+@keyframes moving {
+  0% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
