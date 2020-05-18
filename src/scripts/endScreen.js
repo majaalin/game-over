@@ -1,4 +1,6 @@
 function endScreen() {
+  pauseButton.hide();
+  soundButton.hide();
   cursor('pointer');
   background(120);
   textAlign(CENTER);
