@@ -21,11 +21,7 @@ function gameOn() {
   } else {
     background(bg20);
   }
-  //backgroundSound.play();
-  background(bg);
-  //bg.filter(BLUR, blurred);
-  fill(0, 0, 0, opacity);
-  pg = rect(0, 0, 800, 440);
+
   textFont(scoreFont);
   fill('#5e87d6');
   textSize(24);
@@ -33,33 +29,37 @@ function gameOn() {
   pauseButton = createImg('./src/assets/pause.png');
   pauseButton.position(0, 0);
   pauseButton.mousePressed(pauseGame);
-  image(garbage, x, y, 35, 35);
+  image(garbage.image, x, y, 35, 35);
   image(crab, mouseX, height - 80, 87, 60);
   y += speed;
 
   if (y > height) {
-    if (musicOn === true) {
-      gameOverSound.play();
+    if (garbage.type === 'deadfish') {
+      gameOverSound.pause();
+    } else {
+      if (musicOn === true) {
+        gameOverSound.play();
+      }
     }
-  scoreText = text("score = " + score, 70, 35);
-  image(garbage.image, x, y, 35, 35);
-  // console.log(garbage.type);
-  image(crab, mouseX, height - 60, 80, 60);
-  y += speed;
+  }
 
   if (score < 0) {
     // Game over if minus score
-    gameOverSound.play();
+    if (musicOn === true) {
+      gameOverSound.play();
+    }
     screen = 2;
   }
 
-  if (garbage.type === "deadfish" && y > height) {
+  if (garbage.type === 'deadfish' && y > height) {
     // Game continues if deadfish is not catched
     y = -20;
     garbage = allGarbage[Math.floor(Math.random() * allGarbage.length)];
-  } else if (garbage.type != "deadfish" && y > height) {
+  } else if (garbage.type != 'deadfish' && y > height) {
     // Game over if plastic is not catched
-    gameOverSound.play();
+    if (musicOn === true) {
+      gameOverSound.play();
+    }
     screen = 2;
   }
 
@@ -68,13 +68,9 @@ function gameOn() {
       scoreSound.play();
     }
     y = -20;
-    score += 1;
-    // opacity -= 5;
-    //console.log(bg.blurred);
-    opacity -= 5;
     speed += 0.2;
 
-    if (garbage.type === "deadfish") {
+    if (garbage.type === 'deadfish') {
       score -= 1;
     } else {
       score += 1;
