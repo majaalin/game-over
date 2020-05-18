@@ -1,6 +1,7 @@
 let musicOn = true;
 let gameRunning = true;
 let musicIcon = './src/assets/bottle.png';
+let soundOnOff = 'sound off';
 
 function startScreen() {
   //background(96, 157, 255);
@@ -24,20 +25,18 @@ function startScreen() {
     height / 2 + 10
   );
   text('Click to start!', width / 2, height / 2 + 30);
-  soundButton = createImg('./src/assets/sound.png');
-  soundButton.position(150, 0);
-  soundButton.mousePressed(stopMusic);
   reset();
 }
 
 function stopMusic() {
   if (musicOn === true) {
     backgroundSound.stop();
-    return (musicOn = false);
+    return (musicOn = false), (soundOnOff = 'sound on');
   }
   if (musicOn === false) {
     backgroundSound.loop();
-    return (musicOn = true);
+    soundOnOff = 'sound off';
+    return (musicOn = true), (soundOnOff = 'sound off');
   }
 }
 
@@ -45,11 +44,11 @@ function pauseGame() {
   if (gameRunning === true) {
     noLoop();
     backgroundSound.stop();
-    return (gameRunning = false), (musicOn = false);
+    return (gameRunning = false), (musicOn = false), (pauseOrPlay = 'play');
   }
   if (gameRunning === false) {
     loop();
     backgroundSound.loop();
-    return (gameRunning = true), (musicOn = true);
+    return (gameRunning = true), (musicOn = true), (pauseOrPlay = 'pause');
   }
 }

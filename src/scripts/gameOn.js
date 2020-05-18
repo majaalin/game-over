@@ -4,6 +4,7 @@ let speed = 2;
 let score = 0;
 let scoreText;
 let pauseButton;
+let pauseOrPlay = 'pause';
 
 // X-position of garbage item
 function pickRandom() {
@@ -26,10 +27,22 @@ function gameOn() {
   fill("#5e87d6");
   textFont(scoreFont);
   textSize(24);
-  scoreText = text("score = " + score, 70, 35);
-  pauseButton = createImg("./src/assets/pause.png");
+
+  scoreText = text('score = ' + score, 70, 35);
+  pauseButton = createButton(pauseOrPlay);
+
+  //scoreText = text("score = " + score, 70, 35);
+  //pauseButton = createImg("./src/assets/pause.png");
+
   pauseButton.position(0, 0);
   pauseButton.mousePressed(pauseGame);
+  pauseButton.size(70, 30);
+  pauseButton.style('font-size', '20px');
+  soundButton = createButton(soundOnOff);
+  soundButton.position(150, 0);
+  soundButton.size(110, 30);
+  soundButton.style('font-size', '20px');
+  soundButton.mousePressed(stopMusic);
   image(garbage.image, x, y, 35, 35);
   image(crab, mouseX, height - 80, 87, 60);
   y += speed;
@@ -63,8 +76,14 @@ function gameOn() {
 
     if (garbage.type === "deadfish") {
       score -= 1;
+      if (musicOn === true) {
+        wrong.play();
+      }
     } else {
       score += 1;
+      if (musicOn === true) {
+        scoreSound.play();
+      }
     }
 
     y = -20;
