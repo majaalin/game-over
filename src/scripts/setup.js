@@ -46,7 +46,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth - 290, windowHeight - 140);
+  //createCanvas(windowWidth - 50, windowHeight - 50);
   createCanvas(800, 440);
   backgroundSound.setVolume(0.1);
   backgroundSound.loop();
@@ -97,7 +97,7 @@ function setup() {
   soundButton = createButton(soundOnOff);
   soundButton.class("soundButton");
   soundButton.size(110, 30);
-  playAgainButton = createButton('play again');
+  playAgainButton = createButton("play again");
   playAgainButton.size(140, 35);
 
   // Next (arrow) button, visible on start screen #1 and #2
@@ -123,8 +123,18 @@ function setup() {
   nextButton.mousePressed(changeScreen);
   playButton.mousePressed(changeScreen);
 
-  // introFirst = createP(
-  //   "Every day approximately 8 million pieces of plastic pollution find their way into our oceans..."
-  // );
-  // introFirst.class("introText");
+  introFirst = createP(
+    "Every day approximately 8 million pieces of plastic pollution find their way into our oceans..."
+  );
+  introFirst.parent("introduction");
+
+  introSecond = createP(
+    "There may now be around 5.25 trillion macro and microplastic pieces floating in the open ocean. Weighing up to 269,000 tonnes..."
+  );
+  introSecond.parent("introduction");
+
+  introThird = createP(
+    "Help Krabbaten to collect all the plastics and save our oceans!"
+  );
+  introThird.parent("introduction");
 }
