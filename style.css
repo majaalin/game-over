@@ -21,6 +21,7 @@ canvas {
 
 .soundButton,
 .pauseButton,
+.playButton,
 .playAgainButton,
 .nextButton {
   background-color: #5e87d6;

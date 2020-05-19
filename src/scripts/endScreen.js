@@ -17,5 +17,5 @@ function endScreen() {
 }
 
 function goBackToStartPage() {
-  startScreen();
+  screen = 0;
 }
