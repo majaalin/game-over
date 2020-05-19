@@ -21,8 +21,7 @@ canvas {
 
 .soundButton,
 .pauseButton,
-.playAgainButton {
-.playButton,
+.playAgainButton,
 .nextButton {
   background-color: #5e87d6;
   color: white;
@@ -49,6 +48,8 @@ canvas {
 .playAgainButton {
   margin: 70px auto;
   font-size: 20px;
+}
+
 .playButton {
   margin-top: 100px;
 }
@@ -85,7 +86,6 @@ canvas {
   font-size: 24px;
   color: white;
 }
-
 
 .crab {
   width: 80px;
