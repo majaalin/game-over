@@ -3,6 +3,7 @@ function startScreen() {
   cursor('pointer');
   pauseButton.hide();
   playAgainButton.hide();
+
   background(startScreenBackground);
   fill(255);
   textAlign(CENTER);
