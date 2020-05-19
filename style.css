@@ -11,7 +11,7 @@ body {
 }
 
 body {
-  background-color: #1670ae;
+  background-color: ghostwhite;
 }
 
 canvas {
@@ -21,6 +21,7 @@ canvas {
 
 .soundButton,
 .pauseButton,
+.playAgainButton {
 .playButton,
 .nextButton {
   background-color: #5e87d6;
@@ -45,6 +46,9 @@ canvas {
   margin-left: 230px;
 }
 
+.playAgainButton {
+  margin: 70px auto;
+  font-size: 20px;
 .playButton {
   margin-top: 100px;
 }
@@ -54,12 +58,14 @@ canvas {
 }
 
 .soundButton:hover,
-.pauseButton:hover {
+.pauseButton:hover,
+.playAgainButton:hover {
   background-color: #4a78d1;
 }
 
 .soundButton:active,
-.pauseButton:active {
+.pauseButton:active,
+.playAgainButton:active {
   background-color: #4a78d1;
   box-shadow: 0 1px #4300d1;
   transform: translateY(4px);
@@ -83,7 +89,12 @@ canvas {
 
 .crab {
   width: 80px;
-  animation: moving 1s infinite;
+  animation: moving 1s infinite alternate;
+}
+
+.gameOverText {
+  transform: scale(3);
+  color: red;
 }
 
 @keyframes moving {

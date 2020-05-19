@@ -97,6 +97,8 @@ function setup() {
   soundButton = createButton(soundOnOff);
   soundButton.class("soundButton");
   soundButton.size(110, 30);
+  playAgainButton = createButton('play again');
+  playAgainButton.size(140, 35);
 
   // Next (arrow) button, visible on start screen #1 and #2
   nextButton = createButton(">");
