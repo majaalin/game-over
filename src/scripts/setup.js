@@ -23,6 +23,8 @@ let soundOnOff = "sound off";
 let gameRunning = true;
 let musicOn = true;
 let introFirst;
+let introSecond;
+let introThird;
 
 function preload() {
   scoreSound = loadSound("./src/assets/points.wav");
@@ -46,7 +48,7 @@ function preload() {
 }
 
 function setup() {
-  // createCanvas(windowWidth - 50, windowHeight - 50);
+  createCanvas(windowWidth - 50, windowHeight - 50);
   backgroundSound.setVolume(0.1);
   backgroundSound.loop();
   textFont(scoreFont);
@@ -98,6 +100,9 @@ function setup() {
   soundButton.class("soundButton");
   soundButton.id("soundButton");
   soundButton.size(110, 30);
+  soundButton.position(windowWidth - 200, 40);
+
+  // Play again button, visible on game over screen
   playAgainButton = createButton("play again");
   playAgainButton.size(140, 35);
 
@@ -105,11 +110,18 @@ function setup() {
   nextButton = createButton(">");
   nextButton.class("nextButton");
   nextButton.size(40, 40);
+  nextButton.position(windowWidth - 80, windowHeight / 2 - 20);
 
   // Play button, visible on start screen #3
   playButton = createButton("play");
   playButton.class("playButton");
   playButton.size(90, 40);
+
+  // Information button, always visible
+  infoButton = createButton("?");
+  infoButton.class("infoButton");
+  infoButton.size(30, 30);
+  infoButton.position(windowWidth - 65, 40);
 
   function changeScreen() {
     if (screen == 0) {
@@ -124,6 +136,7 @@ function setup() {
   nextButton.mousePressed(changeScreen);
   playButton.mousePressed(changeScreen);
 
+  // Introduction text on starting page
   introFirst = createP(
     "Every day approximately 8 million pieces of plastic pollution find their way into our oceans..."
   );

@@ -17,13 +17,15 @@ body {
 canvas {
   display: block;
   border-radius: 5px;
+  max-width: 2000px;
 }
 
 .soundButton,
 .pauseButton,
 .playButton,
 .playAgainButton,
-.nextButton {
+.nextButton,
+.infoButton {
   background-color: #5e87d6;
   color: white;
   border: none;
@@ -41,10 +43,10 @@ canvas {
   margin-left: 330px;
 } */
 
-.soundButton {
+/* .soundButton {
   margin-top: calc(-30% + 30px);
   margin-left: calc(50% - 95px);
-}
+} */
 
 .pauseButton {
   margin-top: -195px;
@@ -61,8 +63,8 @@ canvas {
 }
 
 .nextButton {
-  /* margin-left: 45vw; */
-  margin-left: calc(50% - 60px);
+  /* margin-left: 45vw; 
+  margin-left: calc(50% - 60px); */
 }
 
 .soundButton:hover,
