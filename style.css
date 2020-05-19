@@ -22,6 +22,8 @@ canvas {
 .soundButton,
 .pauseButton,
 .playAgainButton {
+.playButton,
+.nextButton {
   background-color: #5e87d6;
   color: white;
   border: none;
@@ -31,18 +33,28 @@ canvas {
   outline: none;
   position: absolute;
   box-shadow: 0 5px #4300d1;
-  margin-top: -195px;
-  margin-left: 330px;
   font-family: 'Quicksand', sans-serif;
 }
 
+.soundButton {
+  margin-top: -195px;
+  margin-left: 330px;
+}
+
 .pauseButton {
+  margin-top: -195px;
   margin-left: 230px;
 }
 
 .playAgainButton {
   margin: 70px auto;
   font-size: 20px;
+.playButton {
+  margin-top: 100px;
+}
+
+.nextButton {
+  margin-left: 360px;
 }
 
 .soundButton:hover,
@@ -58,6 +70,22 @@ canvas {
   box-shadow: 0 1px #4300d1;
   transform: translateY(4px);
 }
+
+.start {
+  width: 100px;
+  height: 100px;
+  background-color: aquamarine;
+}
+
+.introText {
+  position: absolute;
+  width: 400px;
+  text-align: center;
+  font-family: 'Bubblegum';
+  font-size: 24px;
+  color: white;
+}
+
 
 .crab {
   width: 80px;

@@ -57,7 +57,7 @@ function gameOn() {
   }
 
   if (y > height - 60 && x > mouseX - 50 && x < mouseX + 50) {
-    // Player scores
+    // Player catches an item
     if (musicOn === true && garbage.type != 'deadfish') {
       scoreSound.play();
     }
