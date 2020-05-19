@@ -22,9 +22,15 @@ function gameOn() {
     background(bg20);
   }
 
-  fill("#5e87d6");
+  pauseButton.style.visibility = 'visible';
 
-  scoreText = text("score = " + score, 70, 35);
+  fill('#5e87d6');
+  textFont(scoreFont);
+  textSize(24);
+  pauseButton.show();
+  soundButton.show();
+
+  scoreText = text('score = ' + score, 70, 35);
   image(garbage.image, x, y, 35, 35);
   image(crab, mouseX, height - 80, 87, 60);
   y += speed;
@@ -37,12 +43,12 @@ function gameOn() {
     screen = 2;
   }
 
-  if (garbage.type === "deadfish" && y > height) {
+  if (garbage.type === 'deadfish' && y > height) {
     // Game continues if deadfish is not catched
     gameOverSound.pause();
     y = -20;
     garbage = allGarbage[Math.floor(Math.random() * allGarbage.length)];
-  } else if (garbage.type != "deadfish" && y > height) {
+  } else if (garbage.type != 'deadfish' && y > height) {
     // Game over if plastic is not catched
     if (musicOn === true) {
       gameOverSound.play();
@@ -52,11 +58,11 @@ function gameOn() {
 
   if (y > height - 60 && x > mouseX - 50 && x < mouseX + 50) {
     // Player catches an item
-    if (musicOn === true && garbage.type != "deadfish") {
+    if (musicOn === true && garbage.type != 'deadfish') {
       scoreSound.play();
     }
 
-    if (garbage.type === "deadfish") {
+    if (garbage.type === 'deadfish') {
       score -= 1;
       if (musicOn === true) {
         wrong.play();

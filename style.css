@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 
 html,
 body {
@@ -32,7 +32,7 @@ canvas {
   outline: none;
   position: absolute;
   box-shadow: 0 5px #4300d1;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .soundButton {
@@ -75,7 +75,21 @@ canvas {
   position: absolute;
   width: 400px;
   text-align: center;
-  font-family: "Bubblegum";
+  font-family: 'Bubblegum';
   font-size: 24px;
   color: white;
+}
+
+.crab {
+  width: 80px;
+  animation: moving 1s infinite;
+}
+
+@keyframes moving {
+  0% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
 }
