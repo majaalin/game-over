@@ -3,8 +3,12 @@ let screen = 0;
 function draw() {
   if (screen == 0) {
     startScreen();
+    introFirst.show();
+    introSecond.hide();
+    introThird.hide();
   } else if (screen == 1) {
     playButton.hide();
+    introThird.hide();
     gameOn();
   } else if (screen == 2) {
     music = false;
@@ -12,8 +16,14 @@ function draw() {
     endScreen();
   } else if (screen == 10) {
     startScreen2();
+    introSecond.show();
+    introFirst.hide();
+    introThird.hide();
   } else if (screen == 20) {
     startScreen3();
+    introThird.show();
+    introFirst.hide();
+    introSecond.hide();
   }
 
   pauseButton.mousePressed(pauseGame);
