@@ -2,6 +2,8 @@ function startScreen() {
   background(startScreenBackground);
   fill(255);
   textAlign(CENTER);
+  nextButton.show();
+  soundButton.show();
   playButton.hide();
   pauseButton.hide();
   playAgainButton.hide();

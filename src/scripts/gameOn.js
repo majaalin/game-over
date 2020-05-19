@@ -30,9 +30,20 @@ function gameOn() {
   pauseButton.show();
   soundButton.show();
 
+  function position() {
+    if (mouseX > width - 87) {
+      return width - 87;
+    }
+    if (mouseX < 0) {
+      return 0;
+    } else {
+      return mouseX;
+    }
+  }
+
   scoreText = text('score = ' + score, 70, 35);
   image(garbage.image, x, y, 35, 35);
-  image(crab, mouseX, height - 80, 87, 60);
+  image(crab, position(), height - 80, 87, 60);
   y += speed;
 
   if (score < 0) {

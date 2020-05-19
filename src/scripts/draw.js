@@ -23,27 +23,27 @@ function draw() {
     if (gameRunning === true) {
       noLoop();
       backgroundSound.stop();
-      document.getElementsByClassName("pauseButton").innerHTML = "play";
-      return (gameRunning = false), (musicOn = false), (pauseOrPlay = "play");
+      document.getElementById('pauseButton').innerHTML = 'play';
+      return (gameRunning = false), (musicOn = false), (pauseOrPlay = 'play');
     }
     if (gameRunning === false) {
       loop();
       backgroundSound.loop();
-      document.getElementsByClassName("pauseButton").innerHTML = "pause";
-      return (gameRunning = true), (musicOn = true), (pauseOrPlay = "pause");
+      document.getElementById('pauseButton').innerHTML = 'pause';
+      return (gameRunning = true), (musicOn = true), (pauseOrPlay = 'pause');
     }
   }
 
   function stopMusic() {
     if (musicOn === true) {
       backgroundSound.stop();
-      document.getElementById("soundButton").innerHTML = "sound on";
-      return (musicOn = false), (soundOnOff = "sound on");
+      document.getElementById('soundButton').innerHTML = 'sound on';
+      return (musicOn = false), (soundOnOff = 'sound on');
     }
     if (musicOn === false) {
       backgroundSound.loop();
-      document.getElementById("soundButton").innerHTML = "sound off";
-      return (musicOn = true), (soundOnOff = "sound off");
+      document.getElementById('soundButton').innerHTML = 'sound off';
+      return (musicOn = true), (soundOnOff = 'sound off');
     }
   }
 }
