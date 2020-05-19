@@ -1,8 +1,6 @@
 let screen = 0;
 
 function draw() {
-  createCanvas(windowWidth - 50, windowHeight - 50);
-
   if (screen == 0) {
     startScreen();
     introFirst.show();
