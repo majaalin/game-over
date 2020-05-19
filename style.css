@@ -36,9 +36,14 @@ canvas {
   font-family: "Quicksand", sans-serif;
 }
 
-.soundButton {
+/* .soundButton {
   margin-top: -195px;
   margin-left: 330px;
+} */
+
+.soundButton {
+  margin-top: calc(-30% + 30px);
+  margin-left: calc(50% - 95px);
 }
 
 .pauseButton {
@@ -56,7 +61,8 @@ canvas {
 }
 
 .nextButton {
-  margin-left: 360px;
+  /* margin-left: 45vw; */
+  margin-left: calc(50% - 60px);
 }
 
 .soundButton:hover,
