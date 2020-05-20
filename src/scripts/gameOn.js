@@ -1,3 +1,5 @@
+const mq = window.matchMedia('(max-width: 850px)');
+
 let y = -20; // starting position of image
 let x = 200;
 let speed = 2;
@@ -31,19 +33,36 @@ function gameOn() {
   soundButton.show();
 
   function position() {
-    if (mouseX > width - 87) {
-      return width - 87;
-    }
-    if (mouseX < 0) {
-      return 0;
+    if (mq.matches) {
+      if (mouseX > width - 55) {
+        return width - 55;
+      }
+      if (mouseX < 0) {
+        return 0;
+      } else {
+        return mouseX;
+      }
     } else {
-      return mouseX;
+      if (mouseX > width - 87) {
+        return width - 87;
+      }
+      if (mouseX < 0) {
+        return 0;
+      } else {
+        return mouseX;
+      }
     }
   }
 
   scoreText = text('score = ' + score, 70, 35);
   image(garbage.image, x, y, 35, 35);
-  image(crab, position(), height - 80, 87, 60);
+
+  if (mq.matches) {
+    image(crab, position(), height - 80, 55, 60);
+  } else {
+    image(crab, position(), height - 80, 87, 60);
+  }
+
   y += speed;
 
   if (score < 0) {
