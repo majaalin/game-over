@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 
 html,
 body {
@@ -9,6 +9,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 body {
@@ -47,7 +48,7 @@ canvas {
   position: absolute;
   margin: 0 auto;
   box-shadow: 0 5px #4300d1;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .infoButton {
@@ -86,17 +87,35 @@ canvas {
   right: 20px;
   top: 50%;
   z-index: 100;
+  border-radius: 50%;
+  /*
+  margin-left: 45vw; 
+  margin-left: calc(50% - 60px); 
+  */
+}
+
+.infoButton {
+  z-index: 20;
+  /* font-family: "Bubblegum"; */
 }
 
 .soundButton:hover,
 .pauseButton:hover,
-.playAgainButton:hover {
+.playAgainButton:hover,
+.nextButton:hover,
+.infoButton:hover,
+.playButton:hover {
   background-color: #4a78d1;
+  box-shadow: 0 4px #4300d1;
+  transform: translateY(1px);
 }
 
 .soundButton:active,
 .pauseButton:active,
-.playAgainButton:active {
+.playAgainButton:active,
+.nextButton:active,
+.infoButton:active,
+.playButton:active {
   background-color: #4a78d1;
   box-shadow: 0 1px #4300d1;
   transform: translateY(4px);
@@ -112,7 +131,7 @@ canvas {
   position: absolute;
   width: 60%;
   text-align: center;
-  font-family: 'Bubblegum';
+  font-family: "Bubblegum";
   font-size: 24px;
   color: white;
 }
@@ -147,4 +166,38 @@ canvas {
   .theCrab {
     width: 10px !important;
   }
+}
+
+.info {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(67, 0, 209, 0.5);
+  position: absolute;
+  margin: -100% 0 0 0;
+  transition: margin 0.8s ease-in-out;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info.--active {
+  margin: 0;
+}
+
+.info__layer {
+  width: 40%;
+  height: 80%;
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info li {
+  font-family: "Bubblegum";
+  font-size: 20px;
+  color: white;
+  margin: 10px 0;
 }
