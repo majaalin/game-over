@@ -1,4 +1,6 @@
-const mq = window.matchMedia('(max-width: 850px)');
+const mq =
+  window.matchMedia('(max-width: 850px)') ||
+  window.matchMedia('(max-width: 414px)');
 
 let y = -20; // starting position of image
 let x = 200;
@@ -25,17 +27,13 @@ function gameOn() {
   }
 
   pauseButton.style.visibility = 'visible';
-
-  fill('#5e87d6');
-  textFont(scoreFont);
-  textSize(24);
   pauseButton.show();
   soundButton.show();
 
   function position() {
     if (mq.matches) {
-      if (mouseX > width - 55) {
-        return width - 55;
+      if (mouseX > width - 60) {
+        return width - 60;
       }
       if (mouseX < 0) {
         return 0;
@@ -54,12 +52,19 @@ function gameOn() {
     }
   }
 
-  scoreText = text('score = ' + score, 70, 35);
-  image(garbage.image, x, y, 35, 35);
-
   if (mq.matches) {
-    image(crab, position(), height - 80, 55, 60);
+    image(garbage.image, x, y, 25, 25);
+    image(crab, position(), height - 80, 60, 45);
+    textSize(20);
+    fill('#5e87d6');
+    textFont(scoreFont);
+    scoreText = text('score = ' + score, 60, 43);
   } else {
+    textSize(24);
+    fill('#5e87d6');
+    textFont(scoreFont);
+    scoreText = text('score = ' + score, 70, 40);
+    image(garbage.image, x, y, 35, 35);
     image(crab, position(), height - 80, 87, 60);
   }
 

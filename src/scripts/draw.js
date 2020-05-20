@@ -1,6 +1,7 @@
 let screen = 0;
 
 function draw() {
+  background(0);
   if (screen == 0) {
     startScreen();
     introFirst.show();
@@ -59,5 +60,5 @@ function draw() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth - 50, windowHeight - 50);
+  resizeCanvas(windowWidth, windowHeight);
 }

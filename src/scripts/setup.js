@@ -124,9 +124,9 @@ function setup() {
   playButton.size(90, 40);
 
   // Information button, always visible
-  infoButton = createButton("?");
-  infoButton.class("infoButton");
-  infoButton.id("infoButton");
+  infoButton = createButton('?');
+  infoButton.class('infoButton');
+  infoButton.id('infoButton');
   infoButton.parent(buttons);
   infoButton.size(30, 30);
 
@@ -145,17 +145,17 @@ function setup() {
 
   // Show or hide instuctions
   function showOrHideInstructions() {
-    const infoDiv = document.getElementById("info");
-    const btn = document.getElementById("infoButton");
-    infoDiv.classList.toggle("--active");
+    const infoDiv = document.getElementById('info');
+    const btn = document.getElementById('infoButton');
+    infoDiv.classList.toggle('--active');
 
-    if (infoDiv.classList.contains("--active")) {
+    if (infoDiv.classList.contains('--active')) {
       noLoop();
-      btn.innerHTML = "X";
+      btn.innerHTML = 'X';
       gameRunning = false;
-    } else if (!infoDiv.classList.contains("--active")) {
+    } else if (!infoDiv.classList.contains('--active')) {
       loop();
-      btn.innerHTML = "?";
+      btn.innerHTML = '?';
       gameRunning = true;
     }
   }
