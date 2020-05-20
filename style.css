@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 
 html,
 body {
@@ -19,7 +19,7 @@ body {
 canvas {
   display: block;
   border-radius: 5px;
-  max-width: 1400px !important;
+  max-width: 1500px !important;
   width: 100%;
   background-size: cover !important;
 }
@@ -28,8 +28,8 @@ canvas {
   left: auto !important;
   top: auto !important;
   max-width: 2000px;
-  width: 95%;
-  height: 90%;
+  width: 99%;
+  height: 95%;
 }
 
 .soundButton,
@@ -48,7 +48,7 @@ canvas {
   position: absolute;
   margin: 0 auto;
   box-shadow: 0 5px #4300d1;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .infoButton {
@@ -59,7 +59,7 @@ canvas {
 
 .soundButton {
   top: 0;
-  right: 60px;
+  right: 70px;
   z-index: 100;
 }
 
@@ -70,7 +70,7 @@ canvas {
 
 .pauseButton {
   top: 0;
-  right: 180px;
+  right: 200px;
   z-index: 100;
 }
 
@@ -131,7 +131,7 @@ canvas {
   position: absolute;
   width: 60%;
   text-align: center;
-  font-family: "Bubblegum";
+  font-family: 'Bubblegum';
   font-size: 24px;
   color: white;
 }
@@ -155,16 +155,20 @@ canvas {
 }
 
 @media screen and (max-width: 850px) {
-  canvas {
-    height: 50% !important;
+  .soundButton,
+  .pauseButton,
+  .playButton,
+  .playAgainButton,
+  .nextButton,
+  .infoButton {
+    font-size: 14px;
+    margin-right: -10px;
   }
+}
 
-  .buttons {
-    height: 45%;
-  }
-
-  .theCrab {
-    width: 10px !important;
+@media screen and (max-width: 414px) {
+  html {
+    transform: rotate(-90deg);
   }
 }
 
@@ -196,7 +200,7 @@ canvas {
 }
 
 .info li {
-  font-family: "Bubblegum";
+  font-family: 'Bubblegum';
   font-size: 20px;
   color: white;
   margin: 10px 0;

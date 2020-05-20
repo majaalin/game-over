@@ -49,7 +49,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth - 50, windowHeight - 50);
+  createCanvas(windowWidth, windowHeight);
   backgroundSound.setVolume(0.1);
   backgroundSound.loop();
   textFont(scoreFont);
@@ -126,7 +126,7 @@ function setup() {
   // Information button, always visible
   infoButton = createButton('?');
   infoButton.class('infoButton');
-  infoButton.id("infoButton");
+  infoButton.id('infoButton');
   infoButton.parent(buttons);
   infoButton.size(30, 30);
 
@@ -145,17 +145,17 @@ function setup() {
 
   // Show or hide instuctions
   function showOrHideInstructions() {
-    const infoDiv = document.getElementById("info");
-    const btn = document.getElementById("infoButton");
-    infoDiv.classList.toggle("--active");
+    const infoDiv = document.getElementById('info');
+    const btn = document.getElementById('infoButton');
+    infoDiv.classList.toggle('--active');
 
-    if (infoDiv.classList.contains("--active")) {
+    if (infoDiv.classList.contains('--active')) {
       noLoop();
-      btn.innerHTML = "X";
+      btn.innerHTML = 'X';
       gameRunning = false;
-    } else if (!infoDiv.classList.contains("--active")) {
+    } else if (!infoDiv.classList.contains('--active')) {
       loop();
-      btn.innerHTML = "?";
+      btn.innerHTML = '?';
       gameRunning = true;
     }
   }
