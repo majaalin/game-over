@@ -25,6 +25,7 @@ let musicOn = true;
 let introFirst;
 let introSecond;
 let introThird;
+let showInfo = false;
 
 function preload() {
   scoreSound = loadSound('./src/assets/points.wav');
@@ -125,6 +126,7 @@ function setup() {
   // Information button, always visible
   infoButton = createButton('?');
   infoButton.class('infoButton');
+  infoButton.id("infoButton");
   infoButton.parent(buttons);
   infoButton.size(30, 30);
 
@@ -141,7 +143,26 @@ function setup() {
   nextButton.mousePressed(changeScreen);
   playButton.mousePressed(changeScreen);
 
-  // Introduction text on starting page
+  // Show or hide instuctions
+  function showOrHideInstructions() {
+    const infoDiv = document.getElementById("info");
+    const btn = document.getElementById("infoButton");
+    infoDiv.classList.toggle("--active");
+
+    if (infoDiv.classList.contains("--active")) {
+      noLoop();
+      btn.innerHTML = "X";
+      gameRunning = false;
+    } else if (!infoDiv.classList.contains("--active")) {
+      loop();
+      btn.innerHTML = "?";
+      gameRunning = true;
+    }
+  }
+
+  infoButton.mousePressed(showOrHideInstructions);
+
+  // Introduction text on starting pages
   introFirst = createP(
     'Every day approximately 8 million pieces of plastic pollution find their way into our oceans...'
   );
