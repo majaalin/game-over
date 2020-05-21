@@ -57,12 +57,10 @@ function gameOn() {
     image(crab, position(), height - 80, 60, 45);
     textSize(20);
     fill('#5e87d6');
-    textFont(scoreFont);
-    scoreText = text('score = ' + score, 60, 43);
+    scoreText = text('score = ' + score, 60, 34);
   } else {
     textSize(24);
     fill('#5e87d6');
-    textFont(scoreFont);
     scoreText = text('score = ' + score, 70, 40);
     image(garbage.image, x, y, 35, 35);
     image(crab, position(), height - 80, 87, 60);
@@ -91,7 +89,7 @@ function gameOn() {
     screen = 2;
   }
 
-  if (y > height - 60 && x > mouseX - 50 && x < mouseX + 50) {
+  if (y > height - 60 && x > mouseX - 32 && x < mouseX + 32) {
     // Player catches an item
     if (musicOn === true && garbage.type != 'deadfish') {
       scoreSound.play();

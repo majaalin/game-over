@@ -160,7 +160,7 @@ canvas {
   }
 }
 
-@media screen and (max-width: 414px) and (orientation: landscape) {
+@media screen and (max-width: 414px) and {
   html {
     transform: rotate(-90deg);
     transform-origin: left top;
