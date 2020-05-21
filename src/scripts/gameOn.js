@@ -35,19 +35,19 @@ function gameOn() {
       if (mouseX > width - 60) {
         return width - 60;
       }
-      if (mouseX < 0) {
+      if (mouseX <= 0 + 30) {
         return 0;
       } else {
-        return mouseX;
+        return mouseX - 30;
       }
     } else {
       if (mouseX > width - 87) {
         return width - 87;
       }
-      if (mouseX < 0) {
+      if (mouseX <= 0 + 43.5) {
         return 0;
       } else {
-        return mouseX;
+        return mouseX - 43.5;
       }
     }
   }
@@ -89,7 +89,7 @@ function gameOn() {
     screen = 2;
   }
 
-  if (y > height - 60 && x > mouseX - 32 && x < mouseX + 32) {
+  if (y > height - 60 && x > mouseX - 40 && x < mouseX + 40) {
     // Player catches an item
     if (musicOn === true && garbage.type != 'deadfish') {
       scoreSound.play();
