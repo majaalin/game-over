@@ -135,6 +135,10 @@ canvas {
   animation: moving 1s infinite alternate;
 }
 
+.mobile-portrait {
+  display: none;
+}
+
 .gameOverText {
   color: red !important;
 }
@@ -160,7 +164,7 @@ canvas {
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 414px) and (orientation: landscape) {
   html {
     transform: rotate(-90deg);
     transform-origin: left top;
