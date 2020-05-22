@@ -1,7 +1,6 @@
 function endScreen() {
   pauseButton.hide();
   soundButton.hide();
-  cursor('pointer');
   background('white');
   textAlign(CENTER);
   fill('#5e87d6');
