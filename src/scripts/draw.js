@@ -26,7 +26,7 @@ function draw() {
     introFirst.hide();
     introSecond.hide();
   }
-
+  
   pauseButton.mousePressed(pauseGame);
   soundButton.mousePressed(stopMusic);
 
