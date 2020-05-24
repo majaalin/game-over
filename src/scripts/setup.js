@@ -26,17 +26,62 @@ let introFirst;
 let introSecond;
 let introThird;
 let showInfo = false;
+
 let swimmingFishes = [];
-let swimmingFish1;
-let swimmingFish2;
-let swimmingFish3;
-let swimmingFish4;
-let swimmingFish5;
-let swimmingFish6;
-let fishX;
+let animatedFishes = [];
 let fishY;
-let fish;
-let randomSize;
+let fishX;
+let fishDimensions;
+let randomFish;
+let randomSpeed;
+let numberOfFishes;
+
+// Detecting different browsers:
+// Internet Explorer
+let IExplorerAgent =
+  navigator.userAgent.indexOf("MSIE") > -1 ||
+  navigator.userAgent.indexOf("rv:") > -1;
+// Chrome
+let chromeAgent = navigator.userAgent.indexOf("Chrome") > -1;
+// Safari
+let safariAgent = navigator.userAgent.indexOf("Safari") > -1;
+// Discard Safari since it also matches Chrome
+if (chromeAgent && safariAgent) {
+  safariAgent = false;
+}
+
+class Fish {
+  constructor(fish, x, y, dim, speed) {
+    this.fish = fish;
+    this.x = x;
+    this.y = y;
+    this.dim = dim;
+    this.speed = speed;
+    this.len = 35;
+    this.h = 35;
+  }
+
+  show() {
+    // Create fish image
+    image(this.fish, this.x - this.len, this.y, this.dim, this.dim);
+  }
+
+  animate() {
+    // Move the fish forward
+    this.x += this.speed;
+
+    // Jiggle fish
+    this.y += this.y - (this.y + Math.floor(random(-1, 2)));
+
+    // Update values when fish has swam by
+    if (this.x > windowWidth + this.len) {
+      this.fish = swimmingFishes[Math.floor(random(0, 5))];
+      this.x = -this.len;
+      this.y = Math.floor(random(10 + this.len, windowHeight - this.h));
+      this.speed = Math.floor(random(1, 3));
+    }
+  }
+}
 
 function preload() {
   scoreSound = loadSound("./src/assets/points.wav");
@@ -57,12 +102,13 @@ function preload() {
   sound = loadImage("./src/assets/sound.png");
   wrong = loadSound("./src/assets/wrong.wav");
   //nextButton = loadImage("./src/assets/pointing.png");
-  swimmingFish1 = loadImage("./src/assets/aquatic1.svg");
-  swimmingFish2 = loadImage("./src/assets/aquatic2.svg");
-  swimmingFish3 = loadImage("./src/assets/aquatic3.svg");
-  swimmingFish4 = loadImage("./src/assets/aquatic4.svg");
-  swimmingFish5 = loadImage("./src/assets/aquatic5.svg");
-  swimmingFish6 = loadImage("./src/assets/aquatic6.svg");
+
+  // load introtext through loadJSON() - then loop
+
+  // Preload all fish images and add them to swimmingFishes array
+  for (let i = 0; i <= 5; i++) {
+    swimmingFishes[i] = loadImage("./src/assets/aquatic" + [i] + ".svg");
+  }
 }
 
 function setup() {
@@ -70,6 +116,34 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   backgroundSound.setVolume(0.1);
   backgroundSound.loop();
+  textFont(scoreFont);
+
+  // Make new Fish objects
+  for (let i = 0; i < 20; i++) {
+    // Pick random fish from array
+    randomFish = Math.floor(random(0, 5));
+    // Starting position of fish on Y axis
+    fishY = Math.floor(random(50, windowHeight - 50));
+    // Starting position of fish on X axis
+    fishX = 0;
+    // Size of fish
+    if (windowWidth < 850) {
+      fishDimensions = 35;
+    } else {
+      fishDimensions = 45;
+    }
+    // Random speed
+    randomSpeed = Math.floor(random(1, 3));
+
+    // Each object gets an image array, x + y location, dimensions, and speed
+    animatedFishes[i] = new Fish(
+      swimmingFishes[randomFish],
+      fishX,
+      fishY,
+      fishDimensions,
+      randomSpeed
+    );
+  }
 
   const garbageObjects = {
     deadfish: {
@@ -90,12 +164,6 @@ function setup() {
     },
   };
 
-  //const numberOfObjects = Object.keys(bla).length; //2
-
-  // for (let i = 0; i < numberOfObjects; i++) {
-  //   allGarbage.push(Object.keys(garbageObjects)[i]);
-  // }
-
   allGarbage = [
     garbageObjects.deadfish,
     garbageObjects.bottle,
@@ -105,23 +173,6 @@ function setup() {
 
   // The first garbage item that will fall from the ocean surface
   garbage = allGarbage[Math.floor(Math.random() * allGarbage.length)];
-
-  // All fishes
-  swimmingFishes = [
-    swimmingFish1,
-    swimmingFish2,
-    swimmingFish3,
-    swimmingFish4,
-    swimmingFish5,
-    swimmingFish6,
-  ];
-
-  fish = swimmingFishes[Math.floor(Math.random() * swimmingFishes.length)];
-
-  // Staring position of fish
-  fishX = 0;
-  fishY = random(height * 0.18, height - 60);
-  randomSize = random(35, 45);
 
   // Buttons div
   let buttons = createDiv("");
@@ -185,16 +236,21 @@ function setup() {
 
     if (infoDiv.classList.contains("--active")) {
       noLoop();
-      btn.innerHTML = "X";
+      btn.innerHTML = "x";
       gameRunning = false;
     } else if (!infoDiv.classList.contains("--active")) {
       loop();
       btn.innerHTML = "?";
       gameRunning = true;
     }
-  }
 
-  textFont(scoreFont);
+    // Adding a color to the background layer if the player is using Safari or IE (doesn't support backdrop-filter: blur())
+    const infoLayer = document.getElementById("info__layer");
+
+    if (safariAgent || IExplorerAgent) {
+      infoLayer.style.backgroundColor = "rgba(67, 0, 209, 0.95)";
+    }
+  }
 
   infoButton.mousePressed(showOrHideInstructions);
 
