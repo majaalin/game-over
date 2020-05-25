@@ -17,7 +17,7 @@ let allGarbage = [];
 let garbage;
 let pauseButton;
 let playButton;
-//let nextButton;
+let nextButton;
 let pauseOrPlay = "pause";
 let soundOnOff = "sound off";
 let gameRunning = true;
@@ -50,6 +50,10 @@ if (chromeAgent && safariAgent) {
   safariAgent = false;
 }
 
+function getRandomNumber(a, z) {
+  return Math.floor(random(a, z));
+}
+
 class Fish {
   constructor(fish, x, y, dim, speed) {
     this.fish = fish;
@@ -71,14 +75,14 @@ class Fish {
     this.x += this.speed;
 
     // Jiggle fish
-    this.y += this.y - (this.y + Math.floor(random(-1, 2)));
+    this.y += this.y - (this.y + getRandomNumber(-1, 2));
 
     // Update values when fish has swam by
     if (this.x > windowWidth + this.len) {
-      this.fish = swimmingFishes[Math.floor(random(0, 5))];
+      this.fish = swimmingFishes[getRandomNumber(0, 5)];
       this.x = -this.len;
-      this.y = Math.floor(random(10 + this.len, windowHeight - this.h));
-      this.speed = Math.floor(random(1, 3));
+      this.y = getRandomNumber(10 + this.len, windowHeight - this.h);
+      this.speed = getRandomNumber(1, 3);
     }
   }
 }
@@ -101,7 +105,6 @@ function preload() {
   backgroundSound = loadSound("./src/assets/underwater.wav");
   sound = loadImage("./src/assets/sound.png");
   wrong = loadSound("./src/assets/wrong.wav");
-  //nextButton = loadImage("./src/assets/pointing.png");
 
   // load introtext through loadJSON() - then loop
 
@@ -121,9 +124,9 @@ function setup() {
   // Make new Fish objects
   for (let i = 0; i < 20; i++) {
     // Pick random fish from array
-    randomFish = Math.floor(random(0, 5));
+    randomFish = getRandomNumber(0, 5);
     // Starting position of fish on Y axis
-    fishY = Math.floor(random(50, windowHeight - 50));
+    fishY = getRandomNumber(60, windowHeight - 60);
     // Starting position of fish on X axis
     fishX = 0;
     // Size of fish
@@ -133,7 +136,7 @@ function setup() {
       fishDimensions = 45;
     }
     // Random speed
-    randomSpeed = Math.floor(random(1, 3));
+    randomSpeed = getRandomNumber(1, 3);
 
     // Each object gets an image array, x + y location, dimensions, and speed
     animatedFishes[i] = new Fish(
@@ -172,7 +175,7 @@ function setup() {
   ];
 
   // The first garbage item that will fall from the ocean surface
-  garbage = allGarbage[Math.floor(Math.random() * allGarbage.length)];
+  garbage = allGarbage[getRandomNumber(Math.random() * allGarbage.length)];
 
   // Buttons div
   let buttons = createDiv("");
@@ -217,11 +220,13 @@ function setup() {
 
   function changeScreen() {
     if (screen == 0) {
-      screen = 10;
-    } else if (screen == 10) {
-      screen = 20;
-    } else if (screen == 20) {
       screen = 1;
+    } else if (screen == 1) {
+      screen = 2;
+    } else if (screen == 2) {
+      screen = 3;
+    } else if (screen == 3) {
+      screen = 4;
     }
   }
 

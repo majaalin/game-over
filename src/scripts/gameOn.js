@@ -85,7 +85,7 @@ function gameOn() {
     if (musicOn === true) {
       gameOverSound.play();
     }
-    screen = 2;
+    screen = 4;
   }
 
   if (garbage.type === "deadfish" && y > height) {
@@ -98,12 +98,12 @@ function gameOn() {
     if (musicOn === true) {
       gameOverSound.play();
     }
-    screen = 2;
+    screen = 4;
   }
 
   // Player catches an item
   if (mq.matches) {
-    if (y > height - 80 && x > mouseX - 30 && x < mouseX + 30) {
+    if (y > height - 80 && x > position() - 30 && x < position() + 30) {
       if (musicOn === true && garbage.type != "deadfish") {
         scoreSound.play();
       }
