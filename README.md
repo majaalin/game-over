@@ -38,7 +38,7 @@ Non-programmers:
 - Elisabeth Kylmänen
 - Sven-Erik Köllerström
 
-# Comments from testers
+## Comments from testers
 - 
 -
 -
