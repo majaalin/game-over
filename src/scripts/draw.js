@@ -7,21 +7,21 @@ function draw() {
     introFirst.show();
     introSecond.hide();
     introThird.hide();
-  } else if (screen == 1) {
+  } else if (screen == 3) {
     playButton.hide();
     introThird.hide();
     gameOn();
-  } else if (screen == 2) {
+  } else if (screen == 4) {
     music = false;
     playButton.hide();
     endScreen();
     numberOfFishes = 0;
-  } else if (screen == 10) {
+  } else if (screen == 1) {
     startScreen2();
     introSecond.show();
     introFirst.hide();
     introThird.hide();
-  } else if (screen == 20) {
+  } else if (screen == 2) {
     startScreen3();
     introThird.show();
     introFirst.hide();
