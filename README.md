@@ -1,11 +1,44 @@
-# Game over
+# Catch the plastic
+
+![Image description](game.png)
+
+A game build in p5.js...
+
+## Link
+https://catch-the-plastic.netlify.app
 
 ## Authors
-* [Maja Alin](https://github.com/majaalin)
-* [Camilla Kylmänen Sjörén](https://github.com/camiwd)
+- [Maja Alin](https://github.com/majaalin)
+- [Camilla Kylmänen Sjörén](https://github.com/camiwd)
+
+## Installation
+Clone this repo.
+
+```
+$ git clone https://github.com/majaalin/game-over/
+```
  
 ## Pull requests
-* https://github.com/majaalin/game-over/pull/1
-* https://github.com/majaalin/game-over/pull/2
-* https://github.com/majaalin/game-over/pull/3
-* https://github.com/majaalin/game-over/pull/4
+You'll find past pull request [here] (https://github.com/majaalin/game-over/blob/master/PULLREQUESTLOG.md)
+
+## Testers
+Programmers:
+- Terese Thulin
+- Victor Ljungblad 
+
+Non-programmers:
+- Eva Alin
+- Nellie Alin
+- William Alin
+- 
+- 
+
+# Comments from testers
+- 
+-
+-
+-
+
+
+## License
+This project is licensed under the MIT License.
