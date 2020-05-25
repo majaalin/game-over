@@ -1,6 +1,6 @@
 # Catch the plastic
 
-![Image description](game.png)
+![Image description]('./src/assets/game.png')
 
 A game build in p5.js...
 
