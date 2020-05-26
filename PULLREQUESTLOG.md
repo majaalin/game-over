@@ -2,6 +2,7 @@
 
 The history of past pull request.
 
+- [#40 Added Code Review From Daniel Thorsen and Victor Ljungblad](https://github.com/majaalin/game-over/pull/40)
 - [#39 Updated screen numbers](https://github.com/majaalin/game-over/pull/39)
 - [#38 Update draw.js](https://github.com/majaalin/game-over/pull/38)
 - [#37 Add logic for swimming fished](https://github.com/majaalin/game-over/pull/37)
