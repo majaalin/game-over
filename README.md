@@ -9,7 +9,7 @@ https://catch-the-plastic.netlify.app
 
 ## Authors
 - [Maja Alin](https://github.com/majaalin)
-- [Camilla Kylmänen Sjörén](https://github.com/camiwd)
+- [Camilla Kylmänen Sjörén](https://github.com/camkyl)
 
 ## Installation
 
